@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TMU 空き場所ボード</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="検索と投稿">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">TM</div>
+          <div>
+            <h1>TMU 空き場所ボード</h1>
+            <p>6号館・8号館の現地確認メモ</p>
+          </div>
+        </div>
+
+        <section class="notice" id="nightNotice">
+          <strong>今日の情報</strong>
+          <span>0:00に投稿情報をリセット。固定情報は残ります。</span>
+        </section>
+
+        <section class="filter-panel" aria-label="絞り込み">
+          <label class="field">
+            <span>建物</span>
+            <select id="buildingFilter">
+              <option value="all">6号館・8号館</option>
+              <option value="6号館">6号館</option>
+              <option value="8号館">8号館</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>階</span>
+            <select id="floorFilter">
+              <option value="all">すべて</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>キーワード</span>
+            <input id="searchInput" type="search" placeholder="例: 204、図書館側、交流" />
+          </label>
+
+          <label class="toggle-row">
+            <input id="availableOnly" type="checkbox" />
+            <span>空いてる・滞在中だけ</span>
+          </label>
+
+          <label class="toggle-row">
+            <input id="fanOnly" type="checkbox" />
+            <span>扇風機ありだけ</span>
+          </label>
+        </section>
+      </aside>
+
+      <main class="main">
+        <section class="status-band">
+          <div>
+            <p class="eyebrow">東京都立大学 南大沢キャンパス</p>
+            <h2 id="summaryTitle">確認された空き場所 0件</h2>
+          </div>
+          <div class="legend" aria-label="状態の凡例">
+            <span><i class="dot unknown"></i>不明</span>
+            <span><i class="dot free"></i>空いてる</span>
+            <span><i class="dot shared"></i>人はいるが使える</span>
+            <span><i class="dot staying"></i>滞在中</span>
+            <span><i class="dot busy"></i>使えない</span>
+          </div>
+        </section>
+
+        <section class="stats-row" aria-label="集計">
+          <div>
+            <span id="unknownCount">0</span>
+            <small>不明</small>
+          </div>
+          <div>
+            <span id="freeCount">0</span>
+            <small>使用可</small>
+          </div>
+          <div>
+            <span id="stayingCount">0</span>
+            <small>滞在中人数</small>
+          </div>
+          <div>
+            <span id="busyCount">0</span>
+            <small>使えない</small>
+          </div>
+          <div>
+            <span id="onlineCount">0</span>
+            <small>サイト利用中</small>
+          </div>
+        </section>
+
+        <section class="content-grid">
+          <div class="map-area" aria-label="建物メモ">
+            <div class="building-card active" data-building-card="6号館">
+              <h3>6号館</h3>
+              <p>写真の「講義室」表記を候補に登録</p>
+              <div class="mini-floors">
+                <span>1F</span><span>2F</span><span>3F</span><span>4F</span>
+              </div>
+            </div>
+            <div class="building-card active" data-building-card="8号館">
+              <h3>8号館</h3>
+              <p>図書館側・9号館側スペース中心</p>
+              <div class="mini-floors">
+                <span>1F</span><span>3F</span><span>4F</span><span>5F</span><span>6F</span>
+              </div>
+            </div>
+          </div>
+
+          <section class="results" aria-label="場所一覧">
+            <div class="results-head">
+              <h3>場所一覧</h3>
+              <span id="resultCount">0件</span>
+            </div>
+            <div id="roomList" class="room-list"></div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
