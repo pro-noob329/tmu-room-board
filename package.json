@@ -1,0 +1,12 @@
+{
+  "name": "tmu-room-board",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "db:create": "wrangler d1 create tmu-room-board",
+    "db:init": "wrangler d1 execute tmu-room-board --remote --file=./schema.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

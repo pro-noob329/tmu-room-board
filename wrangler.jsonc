@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tmu-room-board",
+  "main": "worker.js",
+  "compatibility_date": "2026-06-04",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "tmu-room-board",
+      "database_id": "REPLACE_AFTER_DATABASE_CREATION"
+    }
+  ]
+}
